@@ -1,0 +1,59 @@
+services:
+  sql-server:
+    # see https://github.com/microsoft/mssql-docker
+    # see https://hub.docker.com/r/microsoft/mssql-server
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    hostname: sql-server
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=HeyH0Password
+      - MSSQL_PID=express
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - >
+          /opt/mssql-tools/bin/sqlcmd
+          -t 3
+          -S localhost
+          -U sa
+          -P HeyH0Password
+          -d master
+          -b
+          -Q 'select 1'
+          || exit 1
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+  sql-server-init:
+    build:
+      context: sql-server-init
+    environment:
+      - MSSQL_SA_PASSWORD=HeyH0Password
+    depends_on:
+      sql-server:
+        condition: service_healthy
+  dotnet-client:
+    build:
+      context: dotnet-client
+    environment:
+      - MSSQL_CONNECTION_STRING=Server=sql-server,1433; TrustServerCertificate=True; Database=example; User ID=example; Password=HeyH0Password
+    depends_on:
+      sql-server-init:
+        condition: service_completed_successfully
+  java-client:
+    build:
+      context: java-client
+    environment:
+      - MSSQL_CONNECTION_STRING=jdbc:sqlserver://sql-server:1433;trustServerCertificate=true;database=example;user=example;password=HeyH0Password
+    depends_on:
+      sql-server-init:
+        condition: service_completed_successfully
+  python-client:
+    build:
+      context: python-client
+    environment:
+      - MSSQL_CONNECTION_STRING=Driver={ODBC Driver 18 for SQL Server};Server=sql-server;Port=1433;TrustServerCertificate=yes;Database=example;uid=example;pwd=HeyH0Password
+    depends_on:
+      sql-server-init:
+        condition: service_completed_successfully
