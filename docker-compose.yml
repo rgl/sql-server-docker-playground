@@ -41,6 +41,14 @@ services:
     depends_on:
       sql-server-init:
         condition: service_completed_successfully
+  go-client:
+    build:
+      context: go-client
+    environment:
+      - MSSQL_CONNECTION_STRING=Server=sql-server,1433; TrustServerCertificate=True; Database=example; User ID=example; Password=HeyH0Password
+    depends_on:
+      sql-server-init:
+        condition: service_completed_successfully
   java-client:
     build:
       context: java-client

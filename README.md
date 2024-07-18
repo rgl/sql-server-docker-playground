@@ -19,6 +19,7 @@ In another shell, see the logs:
 ```bash
 docker compose logs sql-server-init
 docker compose logs dotnet-client
+docker compose logs go-client
 docker compose logs java-client
 docker compose logs python-client
 ```
