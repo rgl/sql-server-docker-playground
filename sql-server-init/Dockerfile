@@ -1,3 +1,5 @@
+# syntax=docker/dockerfile:1.9
+
 # see https://github.com/microsoft/mssql-docker
 # see https://hub.docker.com/r/microsoft/mssql-server
 FROM mcr.microsoft.com/mssql/server:2022-latest

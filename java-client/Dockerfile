@@ -1,3 +1,5 @@
+# syntax=docker/dockerfile:1.9
+
 FROM gradle:8.9.0-jdk21 AS build
 WORKDIR /build
 COPY . .
