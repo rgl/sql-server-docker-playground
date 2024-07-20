@@ -8,6 +8,8 @@ services:
       - ACCEPT_EULA=Y
       - MSSQL_SA_PASSWORD=HeyH0Password
       - MSSQL_PID=express
+    volumes:
+      - sql-server:/var/opt/mssql
     healthcheck:
       test: >
         /opt/mssql-tools/bin/sqlcmd
@@ -64,3 +66,5 @@ services:
     depends_on:
       sql-server-init:
         condition: service_completed_successfully
+volumes:
+  sql-server:
