@@ -11,7 +11,7 @@ Install `docker` and `docker compose`.
 Create the environment:
 
 ```bash
-docker compose up --build
+docker compose up --build --remove-orphans
 ```
 
 In another shell, see the logs:
@@ -27,7 +27,7 @@ docker compose logs python-client
 Destroy the environment:
 
 ```bash
-docker compose down --volumes --timeout=0
+docker compose down --volumes --remove-orphans --timeout=0
 ```
 
 # Reference
