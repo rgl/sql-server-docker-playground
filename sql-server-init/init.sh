@@ -1,7 +1,8 @@
 #!/bin/bash
 set -eu
 
-result="$(/opt/mssql-tools/bin/sqlcmd \
+result="$(/opt/mssql-tools18/bin/sqlcmd \
+    -C \
     -S sql-server \
     -U sa \
     -P "$MSSQL_SA_PASSWORD" \
@@ -16,7 +17,8 @@ if [ "$result" != '(0 rows affected)' ]; then
 fi
 
 echo 'Initializing the database...'
-/opt/mssql-tools/bin/sqlcmd \
+/opt/mssql-tools18/bin/sqlcmd \
+    -C \
     -S sql-server \
     -U sa \
     -P "$MSSQL_SA_PASSWORD" \

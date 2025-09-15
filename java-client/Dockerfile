@@ -1,9 +1,9 @@
-# syntax=docker/dockerfile:1.9
+# syntax=docker/dockerfile:1.18
 
-FROM gradle:8.9.0-jdk21 AS build
+FROM gradle:9.0.0-jdk21 AS build
 WORKDIR /build
 COPY . .
-# NB gradle build would also work, but having a fat jar is nicier for
+# NB gradle build would also work, but having a fat jar is nicer for
 #    distribution.
 RUN gradle shadowJar --no-daemon
 

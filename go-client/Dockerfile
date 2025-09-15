@@ -1,6 +1,6 @@
-# syntax=docker/dockerfile:1.9
+# syntax=docker/dockerfile:1.18
 
-FROM golang:1.22.5 AS build
+FROM golang:1.25.1 AS build
 WORKDIR /build
 COPY go.* .
 RUN go mod download

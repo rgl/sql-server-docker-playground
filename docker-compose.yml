@@ -12,8 +12,9 @@ services:
       - sql-server:/var/opt/mssql
     healthcheck:
       test: >
-        /opt/mssql-tools/bin/sqlcmd
+        /opt/mssql-tools18/bin/sqlcmd
         -t 10
+        -C
         -S localhost
         -U sa
         -P "$$MSSQL_SA_PASSWORD"
@@ -21,7 +22,7 @@ services:
         -b
         -Q 'select 1'
         || exit 1
-      start_period: 5m
+      start_period: 1m
       start_interval: 10s
       interval: 30s
       timeout: 10s

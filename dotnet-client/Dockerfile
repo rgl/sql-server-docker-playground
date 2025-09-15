@@ -1,4 +1,4 @@
-# syntax=docker/dockerfile:1.9
+# syntax=docker/dockerfile:1.18
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /build

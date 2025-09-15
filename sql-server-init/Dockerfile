@@ -1,4 +1,4 @@
-# syntax=docker/dockerfile:1.9
+# syntax=docker/dockerfile:1.18
 
 # see https://github.com/microsoft/mssql-docker
 # see https://hub.docker.com/r/microsoft/mssql-server
