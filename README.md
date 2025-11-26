@@ -34,4 +34,4 @@ docker compose down --volumes --remove-orphans --timeout=0
 
 * https://github.com/microsoft/mssql-docker
 * https://hub.docker.com/r/microsoft/mssql-server
-* [TDS 8.0 and TLS 1.3 support](https://learn.microsoft.com/en-us/sql/relational-databases/security/networking/tds-8-and-tls-1-3?view=sql-server-ver16)
+* [TDS 8.0](https://learn.microsoft.com/en-us/sql/relational-databases/security/networking/tds-8?view=sql-server-ver17) and [TLS 1.3 support](https://learn.microsoft.com/en-us/sql/relational-databases/security/networking/tls-1-3?view=sql-server-ver17)

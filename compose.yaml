@@ -1,8 +1,9 @@
 services:
   sql-server:
     # see https://github.com/microsoft/mssql-docker
+    # see https://mcr.microsoft.com/en-us/artifact/mar/mssql/server
     # see https://hub.docker.com/r/microsoft/mssql-server
-    image: mcr.microsoft.com/mssql/server:2022-latest
+    image: mcr.microsoft.com/mssql/server:2025-latest
     hostname: sql-server
     environment:
       - ACCEPT_EULA=Y

@@ -1,6 +1,6 @@
-# syntax=docker/dockerfile:1.18
+# syntax=docker/dockerfile:1.20
 
-FROM gradle:9.0.0-jdk21 AS build
+FROM gradle:9.2.1-jdk21 AS build
 WORKDIR /build
 COPY . .
 # NB gradle build would also work, but having a fat jar is nicer for

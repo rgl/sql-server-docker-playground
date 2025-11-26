@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <!--
       PublishTrimmed will trim the application dependencies to include only what is actually used by the application.
       NB if you use reflection you might need to configure which assemblies/types/methods need to be included, e.g.:
@@ -22,6 +22,6 @@
     <PublishSingleFile>true</PublishSingleFile>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.1" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.3" />
   </ItemGroup>
 </Project>
