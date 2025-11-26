@@ -1,9 +1,10 @@
 import os
-import pyodbc
+import mssql_python
 
-# see http://mkleehammer.github.io/pyodbc/
+# see https://github.com/microsoft/mssql-python
+# see https://github.com/microsoft/mssql-python/wiki/Connection-to-SQL-Database
 def sql_execute_scalar(connection_string, sql):
-    with pyodbc.connect(connection_string) as connection:
+    with mssql_python.connect(connection_string) as connection:
         with connection.cursor() as cursor:
             cursor.execute(sql)
             return cursor.fetchval()

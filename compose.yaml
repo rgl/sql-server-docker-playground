@@ -64,7 +64,7 @@ services:
     build:
       context: python-client
     environment:
-      - MSSQL_CONNECTION_STRING=Driver={ODBC Driver 18 for SQL Server};Server=sql-server;Port=1433;TrustServerCertificate=yes;Database=example;uid=example;pwd=HeyH0Password
+      - MSSQL_CONNECTION_STRING=Server=sql-server,1433; TrustServerCertificate=yes; Database=example; Uid=example; Pwd=HeyH0Password
     depends_on:
       sql-server-init:
         condition: service_completed_successfully
